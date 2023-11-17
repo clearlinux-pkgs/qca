@@ -1,1 +1,2 @@
 -DQT6=ON
+-Dqca_CERTSTORE="/etc/ssl/certs/ca-certificates.crt"

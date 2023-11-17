@@ -9,7 +9,7 @@
 #
 Name     : qca
 Version  : 2.3.7
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/qca/2.3.7/qca-2.3.7.tar.xz
 Source0  : https://download.kde.org/stable/qca/2.3.7/qca-2.3.7.tar.xz
 Source1  : https://download.kde.org/stable/qca/2.3.7/qca-2.3.7.tar.xz.sig
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1700174610
+export SOURCE_DATE_EPOCH=1700241442
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +113,8 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-%cmake .. -DQT6=ON
+%cmake .. -DQT6=ON \
+-Dqca_CERTSTORE="/etc/ssl/certs/ca-certificates.crt"
 make  %{?_smp_mflags}
 popd
 mkdir -p clr-build-avx2
@@ -136,7 +137,8 @@ CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-%cmake .. -DQT6=ON
+%cmake .. -DQT6=ON \
+-Dqca_CERTSTORE="/etc/ssl/certs/ca-certificates.crt"
 make  %{?_smp_mflags}
 popd
 
@@ -164,7 +166,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1700174610
+export SOURCE_DATE_EPOCH=1700241442
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/qca
 cp %{_builddir}/qca-%{version}/COPYING %{buildroot}/usr/share/package-licenses/qca/caeb68c46fa36651acf592771d09de7937926bb3 || :
@@ -191,7 +193,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-/usr/certs/rootcerts.pem
 
 %files bin
 %defattr(-,root,root,-)
