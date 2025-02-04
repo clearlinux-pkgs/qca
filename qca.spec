@@ -9,7 +9,7 @@
 #
 Name     : qca
 Version  : 2.3.9
-Release  : 31
+Release  : 32
 URL      : https://download.kde.org/stable/qca/2.3.9/qca-2.3.9.tar.xz
 Source0  : https://download.kde.org/stable/qca/2.3.9/qca-2.3.9.tar.xz
 Source1  : https://download.kde.org/stable/qca/2.3.9/qca-2.3.9.tar.xz.sig
