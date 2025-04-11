@@ -1,6 +1,6 @@
 libQt6Core.so.6
 libQt6Core5Compat.so.6
-libbotan-3.so.4
+libbotan-3.so.7
 libc.so.6
 libcrypto.so.3
 libgcc_s.so.1
